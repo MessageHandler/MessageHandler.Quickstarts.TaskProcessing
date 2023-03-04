@@ -9,11 +9,11 @@ IHost host = Host.CreateDefaultBuilder(args)
     {
         services.AddLogging();
 
-        var serviceBusConnectionString = hostContext.Configuration.GetValue<string>("ServiceBusConnectionString")
-                                                ?? throw new Exception("No 'ServiceBusConnectionString' was provided. Use User Secrets or specify via environment variable.");
+        var serviceBusConnectionString = hostContext.Configuration.GetValue<string>("servicebusnamespace")
+                                                ?? throw new Exception("No 'servicebusnamespace' was provided. Use User Secrets or specify via environment variable.");
 
-        var sqlServerConnectionString = hostContext.Configuration.GetValue<string>("SqlServerConnectionString")
-                              ?? throw new Exception("No 'SqlServerConnectionString' was provided. Use User Secrets or specify via environment variable.");
+        var sqlServerConnectionString = hostContext.Configuration.GetValue<string>("sqlserverconnectionstring")
+                              ?? throw new Exception("No 'sqlserverconnectionstring' was provided. Use User Secrets or specify via environment variable.");
            
         services.AddMessageHandler("emailprocessor", runtimeConfiguration =>
         {
@@ -25,8 +25,6 @@ IHost host = Host.CreateDefaultBuilder(args)
 
         services.AddSingleton<IProcessAvailableConfirmationMails>(new AvailableConfirmationMails(sqlServerConnectionString));
         services.AddHostedService<SendConfirmationMail>();
-
-        return;
     })
     .Build();
 

@@ -22,6 +22,7 @@ Task processing is very often done by humans, but it can also be automated when 
 
 - The [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download) should be installed
 - The sample was created using [Visual Studio 2022 community edition](https://visualstudio.microsoft.com/vs/)
+- To store the state an [azure sql database](https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal) is used.
 - To dispatch the command an [azure service bus namespace](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-create-namespace-portal) is used.
 - The **MessageHandler.Runtime.AtomicProcessing** package is available from [nuget.org](https://www.nuget.org/packages/MessageHandler.Runtime.AtomicProcessing/)
 
@@ -33,7 +34,8 @@ In the secrets file you must specify the following configuration values.
 
 ```JSON
 {
-  "servicebusnamespace": "your azure service bus connection string goes here"
+  "servicebusnamespace": "your azure service bus connection string goes here",
+  "sqlserverconnectionstring": "your azure service bus connection string goes here"
 }
 ```
 
