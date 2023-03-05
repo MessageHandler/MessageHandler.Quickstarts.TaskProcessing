@@ -35,6 +35,8 @@ namespace Worker
                         EmailSubject = email.EmailSubject,
                         EmailBody = email.EmailBody
                     });
+                    
+                    logger?.LogInformation("Sent SendEmailCommand...");
 
                     await this.storage.MarkAsSent(email);
 

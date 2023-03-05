@@ -26,6 +26,8 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddSingleton<IPersistAvailableConfirmationMails>(new PersistAvailableConfirmationMails(sqlServerConnectionString));
         services.AddSingleton<SendAvailableConfirmationMails>();
         services.AddHostedService<ConfirmationMailWorker>();
+
+        services.AddHostedService(sp => new InsertAvailableConfirmationMail(sqlServerConnectionString, sp.GetRequiredService<ILogger<InsertAvailableConfirmationMail>>()));
     })
     .Build();
 
