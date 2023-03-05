@@ -1,8 +1,8 @@
 ﻿namespace Worker
 {
-    public interface IProcessAvailableConfirmationMails
+    public interface IPersistAvailableConfirmationMails
     {
-        Task<ConfirmationMail?> StartProcessing();
+        Task<ConfirmationMail?> GetAvailableConfirmationMail();
 
         Task MarkAsSent(ConfirmationMail mail);
 

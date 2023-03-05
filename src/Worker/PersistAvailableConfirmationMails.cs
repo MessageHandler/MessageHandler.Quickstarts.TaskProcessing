@@ -3,11 +3,11 @@ using System.Data.SqlClient;
 
 namespace Worker
 {
-    public class AvailableConfirmationMails : IProcessAvailableConfirmationMails
+    public class PersistAvailableConfirmationMails : IPersistAvailableConfirmationMails
     {
         private string connectionstring;
 
-        public AvailableConfirmationMails(string connectionstring)
+        public PersistAvailableConfirmationMails(string connectionstring)
         {
             this.connectionstring = connectionstring;
         }
@@ -31,7 +31,7 @@ OUTPUT
 
         private readonly string endProcessingSqlCommand = @"UPDATE [dbo].[SalesOrderConfirmations] SET[Status] = @status Where [OrderId] = @orderId;";
 
-        public async Task<ConfirmationMail?> StartProcessing()
+        public async Task<ConfirmationMail?> GetAvailableConfirmationMail()
         {
             var connection = new SqlConnection(connectionstring);
             connection.Open();
