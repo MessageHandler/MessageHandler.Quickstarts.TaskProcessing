@@ -6,13 +6,13 @@ using Xunit;
 
 namespace IntegrationTests
 {
-    public class UnitTest1
+    public class WhilePersistingAvailableConfirmationMails
     {
         [Fact]
         public async Task GivenAvailableConfirmationMail_WhenGettingAvailableConfirmationMail_ThenCanMarkItAsSent()
         {
             var configuration = new ConfigurationBuilder()
-            .AddUserSecrets<UnitTest1>()
+            .AddUserSecrets<WhilePersistingAvailableConfirmationMails>()
             .Build();
 
             var connectionString = configuration.GetSection("sqlserverconnectionstring").Value;
