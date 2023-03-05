@@ -43,16 +43,16 @@ Also ensure a queue named `emails` is created up front in the service bus namesp
 
 Once configured you can start the worker or run the unittests.
 
-<!-- ## Designed with testing in mind
+## Designed with testing in mind
 
 MessageHandler is intented to be test friendly.
 
-This sample contains plenty of ideas on how to test a task processing without requiring a dependency on an actual servicebus namespace, and thus keep the tests fast.
+This sample contains plenty of ideas on how to test a task processor without requiring a dependency on an actual data store, and thus keep the tests fast.
 
-- [Unit tests](/src/Tests/UnitTests): To test the actual logic in the task processing. Unit tests should make up the bulk of all tests in the system.
-- [Component tests](/src/Tests/ComponentTests): To test the api used to expose the task processing.
-- [Contract tests](/src/Tests/ContractTests): To verify that the test doubles used in the unit and component tests are behaving the same as an actual dependency would. Note: contract verification files are often shared between producers and consumers of the contract.
+- [Component tests](https://github.com/MessageHandler/MessageHandler.Quickstarts.TaskProcessing/tree/master/src/Tests/ComponentTests): To test the coordination logic in the task processor.
+- [Contract tests](https://github.com/MessageHandler/MessageHandler.Quickstarts.TaskProcessing/tree/master/src/Tests/ContractTests): To verify that the test doubles used in the  component tests are behaving the same as an actual dependency would. Note: contract verification files are often shared between producers and consumers of the contract.
+- [Integration tests](https://github.com/MessageHandler/MessageHandler.Quickstarts.TaskProcessing/tree/master/src/Tests/IntegrationTests): To test the integration with the data store that is holding the tasks.
 
 ## How to implement it yourself
 
-Check out [this how to guide](https://www.messagehandler.net/docs/guides/event-sourcing/task-processing/) to learn how to implement this pattern. -->
+Check out [this how to guide](https://www.messagehandler.net/docs/guides/atomic-processing/immediate-dispatching/) to learn how to dispatch a command from a task processor.

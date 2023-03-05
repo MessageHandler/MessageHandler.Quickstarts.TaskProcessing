@@ -13,7 +13,7 @@ namespace Worker
 
         private ILogger<InsertAvailableConfirmationMail> logger;
 
-        public InsertAvailableConfirmationMail(string connectionstring, ILogger<InsertAvailableConfirmationMail> logger)
+        public InsertAvailableConfirmationMail(string connectionstring, ILogger<InsertAvailableConfirmationMail> logger = null!)
         {
             this.connectionstring = connectionstring;
             this.logger = logger;
