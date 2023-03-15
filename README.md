@@ -18,6 +18,12 @@ Some people also call this the todo-list pattern, where the state represents wha
 
 Task processing is very often done by humans, but it can also be automated when the conditions for invoking the command are well known.
 
+## Scenario
+
+In this scenario a projection will write notifications that need to be sent in the future, when the notification preferences of the user get set as well, to a data store.
+
+The task processor will query the data store for emails that are ready to be sent, and send them out.
+
 ## What you need to get started
 
 - The [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download) should be installed
